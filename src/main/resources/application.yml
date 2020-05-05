@@ -1,0 +1,35 @@
+server:
+  servlet:
+    session:
+      timeout: 43200
+  port: 8086
+
+spring:
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: gama_dev
+#    password: GaMa123!!
+#    url: jdbc:mysql://sh-cdb-p7jutoqy.sql.tencentcdb.com:61927/gama_dev?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    username: draw
+    password: dPdRyFaHLmd3RbBt
+    url: jdbc:mysql://47.107.252.188:3306/draw?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 40MB
+      max-request-size: 50MB
+mybatis:
+  typeAliasesPackage: com.example.mybaitsxml.dao.entity
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+swagger:
+  enable: true
+
+logging:
+  config: classpath:log4j2.yml
