@@ -1,6 +1,5 @@
 package com.example.draw.controller;
 
-import com.example.draw.entity.DrawPlanform;
 import com.example.draw.service.DrawPlanformService;
 import com.example.draw.utils.Result;
 import com.example.draw.utils.UserUtils;
@@ -11,7 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 
 
 //  Created on 2020-05-04 19:11:19
@@ -64,11 +62,11 @@ public class DrawPlanformController {
 
 
     // Auto Created by Zeng
-    @ApiOperation(value = "获取邀请码",httpMethod = "POST",notes = "Auto Creat")
+    @ApiOperation(value = "获取邀请码",httpMethod = "GET",notes = "Auto Creat")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id",value = "图像id",required = true)
     })
-    @PostMapping("getInvitingCode")
+    @GetMapping("getInvitingCode")
     public Result getInvitingCode(Integer id){
         if(id == null){
             return Result.error("未获取到图像id!","");

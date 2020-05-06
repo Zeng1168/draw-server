@@ -82,11 +82,9 @@ public class UserAccountController {
         System.out.println("++++++用户注册" + user.toString());
         Result result = Result.error("系统异常，请稍后重试！","");
         // 数据校验
-        if(user.getPhone() == null){
-            result.setMsg("请输入电话号码！");
-        }else if(!DataCheck.phoneCheck(user.getPhone())){
+        if(user.getPhone() != null && !DataCheck.phoneCheck(user.getPhone())){
             result.setMsg("电话号码格式不正确！");
-        }else if(userService.phoneUsingCheck(user.getPhone()) > 0){
+        }else if(user.getPhone() != null && userService.phoneUsingCheck(user.getPhone()) > 0){
             result.setMsg("该电话号码已注册！");
         }else if(user.getUsername() == null || user.getUsername().equals("")){
             result.setMsg("请输入用户名！");
